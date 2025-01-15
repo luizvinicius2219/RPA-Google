@@ -102,7 +102,7 @@ def agendar_pesquisa():
     df = pd.DataFrame(dados_lojas)
 
     # Importando a biblioteca necessária para conectar ao banco de dados
-    engine = create_engine('mssql+pymssql://dev_bi:123456.789+/*-@10.0.10.243:54949/stage')
+    engine = create_engine('mssql+pymssql://sa:Vinilu@2219@N81PVYURY\\SQLEXPRESS:1433/Stage')
 
     # Inserindo os dados no banco de dados
     df.to_sql(
@@ -122,7 +122,7 @@ def verificar_e_agendar_pesquisa():
         agendar_pesquisa()
 
 # Agendamento com schedule
-schedule.every().day.at("10:41").do(verificar_e_agendar_pesquisa)
+schedule.every().day.at("09:23").do(verificar_e_agendar_pesquisa)
 
 print("Agendador configurado. Aguardando execução...")
 
